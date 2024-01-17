@@ -2,6 +2,7 @@
 //Can not be public Class
 }
 
+//Two .class File will be created 
 
 
 public class MultipleClassFile {
