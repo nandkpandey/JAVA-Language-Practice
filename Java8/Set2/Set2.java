@@ -4,6 +4,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class Set2 {
   public static void main(String[] args) {
@@ -27,9 +30,9 @@ System.out.println("How many male and female employee ");
 
  System.out.println("Print Department in the org");
 //Extract or transform we use map
-  List<String> listDepartment=emps.stream().map(e->e.getDepartment()).toList();
+  List<String> listDepartment=emps.stream().map(e->e.getDepartment()).collect(Collectors.toList());
   System.out.println(listDepartment);
-  List<String> listDistinctDepartment=emps.stream().map(e->e.getDepartment()).distinct().toList();
+  List<String> listDistinctDepartment=emps.stream().map(e->e.getDepartment()).distinct().collect(Collectors.toList());
   System.out.println(listDistinctDepartment);
 
   System.out.println("Higest paid employee");
@@ -47,8 +50,61 @@ Employee minSalaryEmployee= emps.stream().min(Comparator.comparingDouble(Employe
 System.out.println(minSalaryEmployee);
 //All Employee who joined after 2000
 
-List<Employee> employeesAfter=emps.stream().filter(e->e.getJoiningDate().getYear()>2000).toList();
+List<Employee> employeesAfter=emps.stream().filter(e->e.getJoiningDate().getYear()>2000).collect(Collectors.toList());;
 
 System.out.println(employeesAfter);
+
+
+//count the no of employee in each department
+      Map<String,Long> map=emps.stream().collect(Collectors.groupingBy(Employee::getDepartment,Collectors.counting()));
+
+System.out.println(map);
+
+//Average salary of each department
+
+Map<String,Double> map2=emps.stream().collect(Collectors.groupingBy(Employee::getDepartment,Collectors.averagingDouble(Employee::getSalary)));
+
+System.out.println(map2);
+
+//Most senior in the organization
+
+Employee seniorEmployee=emps.stream().sorted(Comparator.comparing(Employee::getJoiningDate)).findFirst().get();
+
+System.out.println(seniorEmployee);
+
+//How many male and female in IT department
+
+Map<String,Long> maleFemaleIT=emps.stream().filter(e->e.getDepartment().equalsIgnoreCase("IT")).collect(Collectors.groupingBy(Employee::getGender,Collectors.counting()));
+System.out.println(maleFemaleIT);
+
+
+//Average salary of male and female
+
+Map<String,Double> averageSalaryMap=emps.stream().collect(Collectors.groupingBy(Employee::getGender,Collectors.averagingDouble(Employee::getSalary) ));
+
+System.out.println(averageSalaryMap);
+
+//Average salary and total salary of whole organization
+
+Double averDouble=emps.stream().collect(Collectors.averagingDouble(Employee::getSalary));
+
+System.out.println(averDouble);
+
+Double total=emps.stream().collect(Collectors.summingDouble(Employee::getSalary));
+
+System.out.println(total);
+
+//sorting the Employee in desc order based on salary
+
+List<Employee> descorderSalary=emps.stream().sorted(Comparator.comparingDouble(Employee::getSalary).reversed()).collect(Collectors.toList());
+System.out.println(descorderSalary);
+
+//Fetch Top 3 salarried employee
+
+List<Employee> top3List=emps.stream().sorted(Comparator.comparing(Employee::getSalary).reversed()).limit(3).collect(Collectors.toList());
+
+
+System.out.println("Top 3");
+System.out.println(top3List);
 }  
 }
