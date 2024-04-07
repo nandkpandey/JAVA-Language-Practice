@@ -8,6 +8,21 @@ public class Main {
 
     public static void main(String[] args) {
 
+       /*
+        map(Function<? super T,? extends R> mapper)
+        Purpose: Transforms each element of the stream using the provided function.
+         Each element in the stream is mapped to exactly one other element in the output stream.
+        Usage Scenario: When you want to apply a function to each element of the stream to 
+        transform them into another form one-to-one. For example, converting a list of Integer 
+        values to their square values.
+        Type of Operation: One-to-one mapping from the elements of the input stream to the elements
+         of the output stream.
+        Return Type: Stream<R> - It returns a stream consisting of the results of applying the
+         given function to the elements of this stream.
+
+       
+         Using map: Suppose you have a list of numbers and you want to square each number.
+       */
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4);
         List<Integer> squares = numbers.stream()
                 .map(number -> number * number)
