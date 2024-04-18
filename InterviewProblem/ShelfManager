@@ -1,0 +1,114 @@
+Shelves: A number of shelves are given. Assign shelf numbers to the shelves as s1, s2, s3 …
+
+Shopkeeper: The shopkeeper is the one who adds an item to the shelf having the lowest number of items.
+
+Customer: The customer is the one who picks an item from the shelf having the highest number of items.
+
+Iterations: Total number of times the Shopkeeper adds an item or the customer picks an item from the shelf.
+
+
+*If two shelves have an equal number of items, the shopkeeper/customer adds items or picks items from the shelf with the lower shelf number. 
+For e.g., if shelf-2 (s2) and shelf-3 (s3) have two items each, then the shopkeeper/customer will choose shelf-2 (s2).
+
+
+Output: Print number of items in each shelf whenever shopkeeper/customer adds or picks the item from the shelf.
+
+
+
+
+Sample:
+
+
+Input:
+
+
+No. of shelves: 3
+No. of iterations: 11
+Shopkeeper
+Shopkeeper
+Customer
+Shopkeeper
+Shopkeeper
+Shopkeeper
+Customer
+Customer
+Shopkeeper
+Customer
+Customer
+Output:
+
+
+
+
+S1: 1, S2: 0, S3: 0
+S1: 1, S2: 1, S3: 0
+S1: 0, S2: 1, S3: 0
+S1: 1, S2: 1, S3: 0
+S1: 1, S2: 1, S3: 1
+S1: 2, S2: 1, S3: 1
+S1: 1, S2: 1, S3: 1
+S1: 0, S2: 1, S3: 1
+S1: 1, S2: 1, S3: 1
+S1: 0, S2: 1, S3: 1
+S1: 0, S2: 0, S3: 1
+
+
+
+
+
+
+
+
+
+Illustration of problem round wise:
+
+
+
+Input
+Shelf count
+No. of shelves: 3
+
+
+No. of iterations: 11
+
+
+
+
+S1: 0, S2: 0, S3: 0 -> Starting point
+
+
+Shopkeeper
+
+S1: 1, S2: 0, S3: 0 -> Item added to Shelf 1
+Shopkeeper
+
+S1: 1, S2: 1, S3: 0 -> Item added to Shelf 2
+Customer
+
+S1: 0, S2: 1, S3: 0 -> Item picked from Shelf 1
+Shopkeeper
+
+S1: 1, S2: 1, S3: 0 -> Item added to Shelf 1
+Shopkeeper
+
+S1: 1, S2: 1, S3: 1 -> Item added to Shelf 3
+Shopkeeper
+
+S1: 2, S2: 1, S3: 1 -> Item added to Shelf 1
+Customer
+
+S1: 1, S2: 1, S3: 1 -> Item picked from Shelf 1
+Customer
+
+S1: 0, S2: 1, S3: 1 -> Item picked from Shelf 1
+Shopkeeper
+
+S1: 1, S2: 1, S3: 1 ->  Item added to Shelf 1
+Customer
+
+S1: 0, S2: 1, S3: 1 -> Item picked from Shelf 1
+Customer
+
+S1: 0, S2: 0, S3: 1 -> Item picked from Shelf 2
+
+
