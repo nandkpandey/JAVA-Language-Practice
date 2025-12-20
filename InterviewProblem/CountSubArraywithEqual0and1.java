@@ -36,7 +36,8 @@ return count;
 
 
 public static void main(String[] args) {
-    
+
+    //https://www.youtube.com/watch?v=svMdY6wlQ6I   
 int arr[]={1,0,0,1,0,1,1};
 
 
